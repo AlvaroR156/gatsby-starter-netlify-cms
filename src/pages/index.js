@@ -8,16 +8,29 @@ export default class IndexPage extends React.Component {
     const { edges: posts } = data.allMarkdownRemark
 
     return (
-      <section className="section">
-        <div className="container">
-          <div className="content">
-            <h1 className="has-text-weight-bold is-size-2">Latest Stories</h1>
+      <section className="hero is-dark is-medium">
+        <div className="hero-body">
+          <div className="container has-text-centered">
+                <h1 className="title is-size-1">
+                  A consistent digital presence shouldn’t be hard
+                </h1>
+                <div className="columns">
+                <div className="column is-8 is-offset-2">
+                <h2 className="subtitle">
+                  We’ll help you to understand, build and guide your brand identity. We are ideas's explorers, pen crafters, decision makers and dream builders.
+                </h2>
+              </div>
+            </div>
           </div>
+        </div>
+
+
+        <div className="">
           {posts
             .filter(post => post.node.frontmatter.templateKey === 'blog-post')
             .map(({ node: post }) => (
               <div
-                className="content"
+                className="hero-foo"
                 style={{ border: '1px solid #eaecee', padding: '2em 4em' }}
                 key={post.id}
               >
@@ -25,6 +38,7 @@ export default class IndexPage extends React.Component {
                   <Link className="has-text-primary" to={post.fields.slug}>
                     {post.frontmatter.title}
                   </Link>
+                  <span> {post.frontmatter.tags} </span>
                   <span> &bull; </span>
                   <small>{post.frontmatter.date}</small>
                 </p>

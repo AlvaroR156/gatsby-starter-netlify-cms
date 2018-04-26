@@ -9,10 +9,13 @@ $white: #F8F8F8
 
 $primary: $yellow
 $primary-invert: $white
+// Add a serif family
+$family-primary: "Open Sans"
 
 $navbar-item-img-max-height: 2.5rem
 $navbar-item-hover-background-color: $white
 
+$is-medium: 7rem 1.5rem
 .content .taglist
   list-style: none
   margin-bottom: 0
@@ -44,5 +47,12 @@ $navbar-item-hover-background-color: $white
 
 .margin-top-0
   margin-top: 0 !important
+
+$backgrounds: (foo: '/img/jumbotron.jpg', bar: '/img/bar.jpg')
+
+@each $key, $image in $backgrounds
+  .hero-#{$key}
+    background-image: url(#{$image})
+
 
 @import "~bulma"
