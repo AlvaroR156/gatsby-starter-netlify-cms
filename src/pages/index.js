@@ -25,10 +25,13 @@ export default class IndexPage extends React.Component {
         </div>
 
 
-        <div className="">
+        <div className="container">
+          <div class="columns is-multiline">
           {posts
             .filter(post => post.node.frontmatter.templateKey === 'blog-post')
             .map(({ node: post }) => (
+
+					       <div class="column is-one-third">
               <div
                 className="hero-foo"
                 style={{ border: '1px solid #eaecee', padding: '2em 4em' }}
@@ -51,7 +54,10 @@ export default class IndexPage extends React.Component {
                   </Link>
                 </p>
               </div>
+              </div>
+
             ))}
+            </div>
         </div>
       </section>
     )
